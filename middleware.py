@@ -1,5 +1,6 @@
 import logging
 from aiohttp.web import middleware
+import asyncio
 
 logger = logging.getLogger(__name__)
 
