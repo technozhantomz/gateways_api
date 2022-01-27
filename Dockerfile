@@ -1,17 +1,15 @@
 # Use an official Python runtime as a parent image
-FROM python:3.7
+FROM python:3.8
 
-RUN pip install pipenv
-
-# Set the working directory to /app
+COPY . /app
 WORKDIR /app
 
-COPY Pipfile.lock /app
+RUN pip install -r requirements.txt
 
-RUN pipenv install --ignore-pipfile --keep-outdated
+# Set the working directory to /app
+#WORKDIR /app
+
+#RUN pipenv install --ignore-pipfile --keep-outdated --dev
 
 # Copy the current directory contents into the container at /app
-COPY . /app
-
-# Make port 8080 available to the world outside this container
-EXPOSE 8080
+#COPY . /app
